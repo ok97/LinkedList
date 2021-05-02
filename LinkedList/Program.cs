@@ -10,11 +10,19 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            LinkedList Run = new LinkedList();
-            Run.InsertLast(56);
-            Run.InsertLast(30);
-            Run.InsertLast(70);
-            Run.Display();
+            LinkedList list = new LinkedList(); //Create object of LinkedList class
+          
+            //list.InsertLast(56); // Adding data in list //UC1
+            //list.InsertLast(30); // Adding data in list //UC1
+            //list.InsertLast(70); // Adding data in list  //UC1
+           
+            
+            list.InsertFront(70); // Adding data in list //UC2
+            list.InsertFront(30);// Adding data in list //UC2
+            list.InsertFront(56);// Adding data in list //UC2
+
+
+            list.Display(); //call Display method to print data
             Console.ReadLine();
         }
     }
