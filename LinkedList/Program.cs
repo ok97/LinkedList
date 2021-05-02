@@ -11,15 +11,19 @@ namespace LinkedList
         static void Main(string[] args)
         {
             LinkedList list = new LinkedList(); //Create object of LinkedList class
-          
+
             //list.InsertLast(56); // Adding data in list //UC1
             //list.InsertLast(30); // Adding data in list //UC1
             //list.InsertLast(70); // Adding data in list  //UC1
-           
-            
-            list.InsertFront(70); // Adding data in list //UC2
-            list.InsertFront(30);// Adding data in list //UC2
-            list.InsertFront(56);// Adding data in list //UC2
+
+
+            //list.InsertFront(70);// Adding data in list //UC2
+            //list.InsertFront(30);// Adding data in list //UC2
+            //list.InsertFront(56);// Adding data in list //UC2
+
+            list.Appending(56);// Adding data in list //UC3
+            list.Appending(30);// Adding data in list //UC3
+            list.Appending(70);// Adding data in list //UC3
 
 
             list.Display(); //call Display method to print data
