@@ -153,10 +153,33 @@ namespace LinkedList
                 
                 Console.WriteLine($"Successfully Delete Last Element {temp.next.data}");
                 temp.next = null;
-            }            
+            }           
 
         }
 
+        /* UC7:- Ability to search LinkedList to find Node with value 30.
+                 - Write MSTest Test Case as demonstrated in class.
+                 - Loop through LinkedList to find node with key 30.
+        */
+
+        public int Search(int value)
+        {
+            int count = 0;
+            Node temp = this.head;
+            while (temp !=null)
+            {
+                if (temp.data == value)
+                {
+                    Console.WriteLine($"{value} Searching Element Present in Linked List");
+                    return count;
+                }
+               
+                temp = temp.next;
+                count++;                
+            }
+            Console.WriteLine($"{value} Element Not Found in Linked List" );
+            return count;
+        }
 
         public void Display() //create Display Method
         {

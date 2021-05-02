@@ -27,24 +27,28 @@ namespace LinkedList
 
             //list.Add(56); // Adding data in list //UC4            
             //list.Add(70); // Adding data in list //UC4
-            //list.InsertAtParticularPosition(2, 30);//UC4
+            //list.InsertAtParticularPosition(2, 30);//Insert At position Element UC4
 
 
             //list.Add(56); // Adding data in list //UC5
             //list.Add(30); // Adding data in list //UC5
             //list.Add(70); // Adding data in list //UC5
             //list.Display(); //call Display method to print data
-            //list.DeleteFirstNode(); // Adding data in list //UC5
+            //list.DeleteFirstNode(); // Delete First Element data in list //UC5
 
-            list.Add(56); // Adding data in list //UC6
-            list.Add(30); // Adding data in list //UC6
-            list.Add(70); // Adding data in list //UC6
-            list.Display(); //call Display method to print data
-            list.DeleteLastNode(); // Adding data in list //UC6
+            //list.Add(56); // Adding data in list //UC6
+            //list.Add(30); // Adding data in list //UC6
+            //list.Add(70); // Adding data in list //UC6
+            //list.Display(); //call Display method to print data
+            //list.DeleteLastNode(); // Delete Last Element data in list //UC6
 
+            list.Add(56); // Adding data in list //UC7
+            list.Add(30); // Adding data in list //UC7
+            list.Add(70); // Adding data in list //UC7
+            list.Display(); //call Display method to print data//UC7
+            list.Search(50); //Search Element in Linked List //UC7
 
-
-            list.Display(); //call Display method to print data
+            //list.Display(); //call Display method to print data
        
             Console.ReadLine();
         }
