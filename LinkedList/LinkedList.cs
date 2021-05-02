@@ -130,6 +130,32 @@ namespace LinkedList
             
         }
 
+        /* UC6:- Ability to delete the last element in the LinkedList of sequence 56->30->70.
+                 - Write popLast method.
+                 - Note there is new tail.
+                 - Final Sequence: 56->30
+         */
+
+        public void DeleteLastNode()
+        {
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("Linked List is Empty");
+                return;
+            }
+            else
+            {
+                while (temp.next.next != null)
+                {
+                    temp=temp.next;
+                }
+                
+                Console.WriteLine($"Successfully Delete Last Element {temp.next.data}");
+                temp.next = null;
+            }            
+
+        }
 
 
         public void Display() //create Display Method
