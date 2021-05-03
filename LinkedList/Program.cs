@@ -58,16 +58,28 @@ namespace LinkedList
 
 
 
-            list.Add(56); // Adding data in list //UC9
-            list.Add(30); // Adding data in list //UC9
-            list.Add(40); // Adding data in list //UC9
-            list.Add(70); // Adding data in list //UC9
-            list.Display(); //call Display method to print data//UC9
-            list.Count(); //call count method
-            list.DeleteElement(40); //call DeleteElement method pass parameter // UC9     
-            list.Display(); // Display //UC9
-            list.Count(); //call count method and print count//UC9
+            //list.Add(56); // Adding data in list //UC9
+            //list.Add(30); // Adding data in list //UC9
+            //list.Add(40); // Adding data in list //UC9
+            //list.Add(70); // Adding data in list //UC9
+            //list.Display(); //call Display method to print data//UC9
+            //list.Count(); //call count method
+            //list.DeleteElement(40); //call DeleteElement method pass parameter // UC9     
+            //list.Display(); // Display //UC9
+            //list.Count(); //call count method and print count//UC9
 
+
+            list.Add(56); // Adding data in list //UC10
+            list.Add(30); // Adding data in list //UC10
+            list.Add(40); // Adding data in list //UC10
+            list.Add(70); // Adding data in list //UC10
+            list.Display();//call Display method to print data//UC10
+            Console.WriteLine("\n");
+            list.head = list.LinkedListSorted(list.head);//call LinkedListSort Method passing head
+           // list.LinkedListSorted(list.head);
+             
+            list.Display(); // Display //UC9
+           
 
             Console.ReadLine();
         }

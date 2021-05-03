@@ -10,6 +10,11 @@ namespace LinkedList
     {
         public int data; // integer value store data
         public Node next; //Public Node head; data type is Node holding the address of the next node
+
+        public Node()
+        {
+        }
+
         public Node(int d) // parameter constructor
         {
             data = d; //data store
@@ -230,13 +235,15 @@ namespace LinkedList
             int count = 0;
 
             if (head == null)
+            { 
                 Console.WriteLine("List is Empty");
+            }
             else
             {
                 Node temp = head;
                 Node previousNode = null;
                 while (temp != null)
-                {                   
+                {                  
                     
                     if (temp.data == data)
                     {
@@ -263,10 +270,8 @@ namespace LinkedList
                     Console.WriteLine($"Successfully Delete Element {data}");
 
                 }
-            }
-
-            
-            //return flag; 
+            }            
+           
         }
 
         public int Count()
@@ -280,11 +285,77 @@ namespace LinkedList
                 count++;
             }
             Console.WriteLine($"Linked List Count is {count}");
-
             return count;
-           
         }
 
+
+        /* UC10:- Ability to create Ordered Linked List in ascending order of data entered 
+                  in following sequence 56, 30, 40, and 70.
+                  - Refactor the code to create SortedLinkedList Class.
+                  - Create Node that takes data that is Comparable .
+                  - Perform Sorting during the add method call.
+                  - Final Sequence: 30->40->56->70.
+        */
+
+        public Node LinkedListSorted(Node head)
+        {
+            if (head == null || head.next == null)
+            {
+                return head;
+            }
+            Node temp = head;
+            Node slow = head;
+            Node fast = head;
+            while (fast!=null && fast.next!=null)
+            {
+                temp = slow;
+                slow = slow.next;
+                fast = fast.next.next;
+
+            }
+            temp.next = null;
+           Node leftside = LinkedListSorted(head);
+           Node rightside = LinkedListSorted(slow);
+            return Merge(leftside,rightside);
+        }
+
+        public Node Merge(Node l1, Node l2)
+        {
+            Node sorted_temp = new Node();
+            Node current_node = sorted_temp;
+
+            while (l1 != null && l2 != null)
+            {
+                if (l1.data < l2.data)
+                {
+                    current_node.next = l1;
+
+                    l1 = l1.next;
+                }
+                else
+                {
+                    current_node.next = l2;
+
+                    l2 = l2.next;
+                }
+                current_node = current_node.next;
+            }
+
+            if (l1 != null)
+            {
+                current_node.next = l1;
+                l1 = l1.next;
+            }
+
+            if (l2 != null)
+            {
+                current_node.next = l2;
+                l2 = l2.next;
+            }
+            
+            return sorted_temp.next;
+
+        }
 
 
         public void Display() //create Display Method
