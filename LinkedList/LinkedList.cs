@@ -210,11 +210,82 @@ namespace LinkedList
                     }
                     temp = temp.next;                    
                 }               
-                Console.WriteLine($"Successfully added Element {after} After {data}");
-            
+                Console.WriteLine($"Successfully added Element {after} After {data}");           
 
             }
         }
+
+
+        /* UC9:- Ability to delete 40 from the Linked List sequence of 56->30->40->70 and show the size of LinkedList is 3.
+                - Write MSTest Test Case as demonstrated in class.
+                - Search LinkedList to find node with key value 40.
+                - Delete the node. 
+                - Implement size() and show the Linked List size is 3.
+                - Final Sequence: 56->30->70.
+        */
+
+        public void DeleteElement(int data)
+        {
+            bool flag = false;
+            int count = 0;
+
+            if (head == null)
+                Console.WriteLine("List is Empty");
+            else
+            {
+                Node temp = head;
+                Node previousNode = null;
+                while (temp != null)
+                {                   
+                    
+                    if (temp.data == data)
+                    {
+                        if (count == 1)
+                        {
+                            head = temp.next;
+                        }                       
+                        previousNode.next = temp.next;                           
+                     
+                        flag = true;
+                       
+                        break;
+                    }
+                    previousNode = temp;
+                    temp = temp.next;
+                   
+                }
+                if (!flag)
+                {
+                    Console.WriteLine($"{data} Element Not Found in Linked List");
+                }
+                else
+                {
+                    Console.WriteLine($"Successfully Delete Element {data}");
+
+                }
+            }
+
+            
+            //return flag; 
+        }
+
+        public int Count()
+        {
+            int count = 0;
+
+            Node temp = head;
+            while (temp != null)
+            {
+                temp = temp.next;
+                count++;
+            }
+            Console.WriteLine($"Linked List Count is {count}");
+
+            return count;
+           
+        }
+
+
 
         public void Display() //create Display Method
         {
