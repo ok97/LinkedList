@@ -25,17 +25,17 @@ namespace LinkedList
         public void Add(int new_data)
         {
             Node new_node = new Node(new_data); //create object Node  
-                if(this.head == null)
+            if (this.head == null)
             {
                 this.head = new_node;
             }
-                else
+            else
             {
                 Node lastnode = GetLastNode();
                 lastnode.next = new_node; //add new node
 
             }
-            Console.WriteLine($"Inserted into List {new_node.data}");
+            Console.WriteLine($"Inserted into List:- {new_node.data}");
         }
         public Node GetLastNode()
         {
@@ -57,16 +57,16 @@ namespace LinkedList
             Node new_node = new Node(new_data);//create new node then new node point to the head of the linked list
             new_node.next = this.head;// add any node at the front point head 
             this.head = new_node; // The Previous Head is now the second node of linked List the new node is added at the
-            Console.WriteLine($"Inserted into list {new_node.data}"); //print
-             
+            Console.WriteLine($"Inserted into list:- {new_node.data}"); //print
+
         }
 
-         /* UC3:- Ability to create Linked List by appending 30 and 70 to 56.
-                  - Node with data 56 is First Created.
-                  - Next Append 30 to 56. 
-                  - Finally Append 70 to 30.
-                  - LinkedList Sequence: 56->30->70.
-         */
+        /* UC3:- Ability to create Linked List by appending 30 and 70 to 56.
+                 - Node with data 56 is First Created.
+                 - Next Append 30 to 56. 
+                 - Finally Append 70 to 30.
+                 - LinkedList Sequence: 56->30->70.
+        */
 
         public void Appending(int value)
         {
@@ -79,7 +79,7 @@ namespace LinkedList
          */
         public Node InsertAtParticularPosition(int position, int data)
         {
-            if(position < 1)
+            if (position < 1)
             {
                 Console.WriteLine($"Invalid Position{ position}");
             }
@@ -91,9 +91,9 @@ namespace LinkedList
             }
             else
             {
-                while (position--!=0)
+                while (position-- != 0)
                 {
-                    if (position==1)
+                    if (position == 1)
                     {
                         Node node = new Node(data);
                         node.next = this.head.next;
@@ -102,32 +102,32 @@ namespace LinkedList
                     }
                     head = head.next;
                 }
-                if (position!=1)
+                if (position != 1)
                 {
                     Console.WriteLine($"Position Out Of Range{ position}");
                 }
             }
             Console.WriteLine($"Successfully added Position of Element {position},{data}");
-            return head;           
+            return head;
         }
 
-       /* UC5:- Ability to delete the first element in the LinkedList of sequence 56->30->70.
-                - Write pop method. 
-                - Note there is new head.
-                - Final Sequence: 30->70.
-         */
+        /* UC5:- Ability to delete the first element in the LinkedList of sequence 56->30->70.
+                 - Write pop method. 
+                 - Note there is new head.
+                 - Final Sequence: 30->70.
+          */
 
         public void DeleteFirstNode()
         {
             Node temp = this.head;
-            if (temp == null) 
+            if (temp == null)
             {
                 Console.WriteLine("Linked List is Empty");
                 return;
             }
-             head = temp.next;           
+            head = temp.next;
             Console.WriteLine($"Successfully Delete First Element {temp.data}");
-            
+
         }
 
         /* UC6:- Ability to delete the last element in the LinkedList of sequence 56->30->70.
@@ -148,12 +148,12 @@ namespace LinkedList
             {
                 while (temp.next.next != null)
                 {
-                    temp=temp.next;
+                    temp = temp.next;
                 }
-                
+
                 Console.WriteLine($"Successfully Delete Last Element {temp.next.data}");
                 temp.next = null;
-            }           
+            }
 
         }
 
@@ -166,32 +166,67 @@ namespace LinkedList
         {
             int count = 0;
             Node temp = this.head;
-            while (temp !=null)
+            while (temp != null)
             {
                 if (temp.data == value)
                 {
                     Console.WriteLine($"{value} Searching Element Present in Linked List");
                     return count;
                 }
-               
+
                 temp = temp.next;
-                count++;                
+                count++;
             }
-            Console.WriteLine($"{value} Element Not Found in Linked List" );
+            Console.WriteLine($"{value} Element Not Found in Linked List");
             return count;
+        }
+
+        /* UC8:- Ability to insert 40 after 30 to the Linked List sequence of 56->30->70.
+                 - Write MSTest Test Case as demonstrated in class.
+                 - Search LinkedList to find Node with key value 30.
+                 - Then Insert 40 to 30.
+                 - Final Sequence: 56->30->40->70. 
+         */
+
+        public void InsertAtAfterValue(int after, int data)
+        {           
+
+            if (head == null)
+            {
+                Console.WriteLine("Linked list is Empty");
+            }
+            else
+            {
+                Node temp = head;
+
+                while (temp != null)
+                {
+                    if (temp.data == after)
+                    {
+                        Node node = new Node(data);
+                        node.next = temp.next;
+                        temp.next = node;
+                        break;
+                    }
+                    temp = temp.next;                    
+                }               
+                Console.WriteLine($"Successfully added Element {after} After {data}");
+            
+
+            }
         }
 
         public void Display() //create Display Method
         {
             Node temp = this.head;
-            if (temp == null)  
+            if (temp == null)
             {
                 Console.WriteLine("Linked List Empty");
                 return;
             }
             else
             {
-                while (temp!=null)
+                while (temp != null)
                 {
                     Console.WriteLine($"Linked List Element:- {temp.data} ");//print Node
                     temp = temp.next; //point to next node
